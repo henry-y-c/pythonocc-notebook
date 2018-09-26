@@ -24,4 +24,5 @@ fi
 docker build --tag=$TEST_IMAGE_NAME .
 
 # Run container
-docker run --rm -it --name $TEST_CONTAINER_NAME -p 8080:8888 $TEST_IMAGE_NAME /bin/bash
+mkdir ./test-notebooks
+docker run --rm -it --name $TEST_CONTAINER_NAME -p 8080:8888 -v ${PWD}/test-notebooks:/opt/notebooks $TEST_IMAGE_NAME
